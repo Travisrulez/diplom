@@ -1,0 +1,26 @@
+@import '../variables';
+
+.btn {
+  background-color: $buttonBg;
+  border: none;
+  outline: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: $color;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color .15s ease-in-out, box-shadow .1s ease-in-out;
+
+  &:hover {
+    background-color: $buttonBgHover;
+  }
+
+  &:active {
+    background-color: $buttonBgActive;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px rgba(171, 163, 243, 0.6);
+  }
+}

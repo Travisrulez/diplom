@@ -1,0 +1,8 @@
+@import '../variables';
+
+.badge {
+  padding: 12px 25px;
+  background-color: $cardBg;
+  border-radius: 10px 25px;
+  font-weight: 500;
+}
