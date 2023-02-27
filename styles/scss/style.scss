@@ -6,6 +6,7 @@
 @import 'components/modal';
 
 .header {
+  position: relative;
   margin: 50px 0 30px;
 
   &__container {
@@ -36,6 +37,18 @@
       width: 20px;
       height: auto;
     }
+  }
+
+  .decor-letter {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #D9D4FF;
+    font-size: 800px;
+    font-weight: 600;
+    line-height: 0.8;
+    transform: rotate(-25deg);
+    z-index: -1;
   }
 }
 
@@ -159,6 +172,8 @@
 }
 
 .sponsor {
+  margin-top: 100px;
+
   &__title {
     margin-bottom: 30px;
   }
@@ -205,6 +220,8 @@
 
   &__container {
     display: flex;
+    position: relative;
+    overflow: hidden;
   }
 
   &__title {
@@ -220,6 +237,18 @@
     font-size: 18px;
     margin-bottom: 40px;
   }
+
+  .decor-letter {
+    position: absolute;
+    left: 50px;
+    bottom: -150px;
+    color: #D9D4FF;
+    font-size: 400px;
+    font-weight: 600;
+    line-height: 0.8;
+    transform: rotate(80deg);
+    z-index: 0;
+  }
 }
 
 .modal {
@@ -234,4 +263,88 @@
     flex-direction: column;
     align-items: center;
   }
+}
+
+@media screen and (max-width: 1200px) {
+  .header {
+    &__title {
+      padding-right: 0;
+    }
+
+    .decor-letter {
+      font-size: 600px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .header {
+    .decor-letter {
+      font-size: 400px;
+    }
+  }
+
+  .problems {
+    &__items {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  .terms {
+    &__info {
+      margin-right: 0;
+    }
+
+    &__image {
+      display: none;
+    }
+  }
+
+  .stages {
+    &__title {
+      margin-bottom: 30px;
+    }
+
+    &__container {
+      flex-direction: column;
+    }
+  }
+
+  .sponsor {
+    &__items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    .decor-letter {
+      font-size: 300px;
+      top: 200px;
+    }
+  }
+  .sponsor {
+    &__items {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  .application {
+    &__container {
+      flex-direction: column;
+    }
+
+    &__title {
+      margin-bottom: 30px;
+    }
+
+    .decor-letter {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+
 }

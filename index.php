@@ -47,21 +47,23 @@ if(isset($_POST['submit'])) {
     content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
   <meta http-equiv='X-UA-Compatible' content='ie=edge'>
   <link rel="stylesheet" href="./styles/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
   <script src="scripts/wow.js" defer></script>
-  <script src="scripts/modal.js" defer></script>
+  <script src="scripts/modal.js" defer></script> -->
   <title>Конференция</title>
 </head>
 <body>
-  <header class='header'>
-    <div class='header__container container'>
-      <h1 class='header__title h1'>Язык, сознание, коммуникация</h1>
-      <button class='header__btn btn'>
-        <img src='assets/icons/user.svg' />
-      </button>
-    </div>
-  </header>
+  <div class="app">
+<header class='header'>
+      <div class='header__container container'>
+        <h1 class='header__title h1'>Язык, сознание, коммуникация</h1>
+        <button class='header__btn btn'>
+          <img src='assets/icons/user.svg' />
+        </button>
+      </div>
+      <span class='decor-letter'>Я</span>
+    </header>
 
   <main>
     <section class='overview wow'>
@@ -75,7 +77,7 @@ if(isset($_POST['submit'])) {
             <div class='overview__badge badge'>Онлайн</div>
             <div class='overview__badge badge'>Русский</div>
           </div>
-          <button class='overview__btn btn open-modal-btn'>Подать заявку</button>
+          <a href="request.php" class='overview__btn btn open-modal-btn'>Подать заявку</a>
         </div>
       </div>
     </section>
@@ -176,13 +178,14 @@ if(isset($_POST['submit'])) {
           <p class='application__description'>
             Если вы готовы оставить заявку, нажмите на кнопку и заполните форму со всеми предложенными данными
           </p>
-          <button class='application__btn btn open-modal-btn'>Подать заявку</button>
+          <a href="request.php" class='application__btn btn open-modal-btn'>Подать заявку</a>
         </div>
+        <span class='decor-letter'>Я</span>
       </div>
     </section>
   </main>
 
-  <div class='overlay'></div>
+  <!-- <div class='overlay'></div>
   <div class='modal'>
     <form method='post' enctype="multipart/form-data">
       <div class='modal__title'>Подача заявки</div>
@@ -231,6 +234,7 @@ if(isset($_POST['submit'])) {
 
       <input class='modal__btn btn' type='submit' name='submit' value="Подать заявку"></input>
     </form>
-  </div>
+  </div> -->
+</div>
 </body>
 </html>
