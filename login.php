@@ -57,7 +57,7 @@ if(isset($_POST['submit']))
     </div>
     <div class='buttons'>
       <input class='btn small' type="submit" name="submit" value="Вход"></input>
-      <a class='btn small secondary' href='registration.html'>
+      <a class='btn small secondary' href='registration.php'>
         У меня нет аккаунта
       </a>
       <p style="color:red;"><?php echo $message; ?></p>
