@@ -5,6 +5,9 @@ include("app/database.php");
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
+session_start();
+if ($_SESSION["u_id"]) {
+  $u_id = $_SESSION["u_id"];
 if(isset($_POST['submit'])) {
     $fname = $_FILES['file']['name'];
     $temp = $_FILES['file']['tmp_name'];
@@ -38,8 +41,11 @@ if(isset($_POST['submit'])) {
     }
     // $_SESSION['error'] = $error;
     // $_SESSION['success'] = $success;
-    header("location:index.php");
+    header("location:account.php");
 }
+$sql = "SELECT * FROM user WHERE u_id=". $u_id;
+    $result = mysqli_query($link, $sql);
+    $u = mysqli_fetch_assoc($result);
 ?>
 <head>
   <meta charset='UTF-8'>
@@ -57,9 +63,9 @@ if(isset($_POST['submit'])) {
   <header class='header'>
     <div class='header__container container'>
       <a href="index.php" class="header__arrow">&larr;</a><h1 class='header__title h1'>Язык, сознание, коммуникация</h1>
-      <button class='header__btn btn'>
+      <a href="login.php" class='header__btn btn'>
         <img src='assets/icons/user.svg' />
-      </button>
+      </a>
     </div>
   </header>
   <div class='overlay'></div>
@@ -69,23 +75,23 @@ if(isset($_POST['submit'])) {
       <div class='modal__inputs'>
         <div class='input-container'>
           <label class='label' for='fullname'>ФИО</label>
-          <input class='input' id='fullname' name="name" placeholder='Введите ФИО' />
+          <input class='input' id='fullname' name="name" placeholder='Введите ФИО' value="<?=$u['name']?>"/>
         </div>
         <div class='input-container'>
           <label class='label' for='status'>Статус</label>
-          <input class='input' id='status' name="status" placeholder='Введите статус' />
+          <input class='input' id='status' name="status" placeholder='Введите статус' value="<?=$u['status']?>"/>
         </div>
         <div class='input-container'>
           <label class='label' for='dateOfBirth'>Дата рождения</label>
-          <input class='input' id='dateOfBirth' name="birthday" placeholder='Введите дату рождения' />
+          <input class='input' id='dateOfBirth' name="birthday" placeholder='Введите дату рождения' value="<?=$u['birthday']?>"/>
         </div>
         <div class='input-container'>
           <label class='label' for='email'>Email</label>
-          <input class='input' type='email' name="email" id='email' placeholder='Введите Email' />
+          <input class='input' type='email' name="email" id='email' placeholder='Введите Email' value="<?=$u['email']?>"/>
         </div>
         <div class='input-container'>
           <label class='label' for='phone'>Контактный телефон</label>
-          <input class='input' id='phone' name="phone" placeholder='Введите контектный телефон' />
+          <input class='input' id='phone' name="phone" placeholder='Введите контектный телефон' value="<?=$u['phone']?>"/>
         </div>
         <div class='input-container'>
           <label class='label' for='articleTitle'>Название статьи</label>
@@ -101,7 +107,7 @@ if(isset($_POST['submit'])) {
         </div>
         <div class='input-container'>
           <label class='label' for='place'>Место работы</label>
-          <input class='input' id='place' name="place" placeholder='Введите место работы' />
+          <input class='input' id='place' name="place" placeholder='Введите место работы' value="<?=$u['place']?>"/>
         </div>
         <div class='input-container'>
           <label class='label' for='file'>Поле прикрепления файла</label>
@@ -114,3 +120,8 @@ if(isset($_POST['submit'])) {
   </div>
 </body>
 </html>
+<?php 
+}else {
+  header("location:login.php");
+}
+?>

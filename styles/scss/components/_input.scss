@@ -13,10 +13,15 @@
   box-shadow: none;
   color: $color;
   padding: 12px 15px;
+  transition: box-shadow .1s ease-in-out;
 
   &[type=file] {
     height: 40px;
     padding: 8px 15px;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px rgba(171, 163, 243, 0.6);
   }
 }
 

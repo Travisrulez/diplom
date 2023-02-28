@@ -8,3 +8,11 @@ function get_requests() {
     return $requests;
 
 }
+
+function get_request_u($u_id) {
+    global $link;
+    $sql = "SELECT * FROM request WHERE u_id=". $u_id;
+    $result = mysqli_query($link, $sql);
+    $urequest = mysqli_fetch_assoc($result);
+    return $urequest;
+}

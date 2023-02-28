@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+.app {
+  overflow: hidden;
+}
+
+body {
+  color: #FFF;
+  background-color: #16131B;
+}
+
+.h1 {
+  font-weight: 600;
+  font-size: 48px;
+}
+@media screen and (max-width: 1200px) {
+  .h1 {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .h1 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .h1 {
+    font-size: 26px;
+  }
+}
+
+.h2 {
+  font-weight: 700;
+  font-size: 30px;
+}
+@media screen and (max-width: 1200px) {
+  .h2 {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .h2 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .h2 {
+    font-size: 20px;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.overlay.active {
+  display: block;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  background-color: #252428;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: #FFF;
+  padding: 12px 15px;
+  transition: box-shadow 0.1s ease-in-out;
+}
+.input[type=file] {
+  height: 40px;
+  padding: 8px 15px;
+}
+.input:focus-visible {
+  box-shadow: 0 0 0 3px rgba(171, 163, 243, 0.6);
+}
+
+input[type=file]::file-selector-button {
+  border: none;
+  outline: none;
+  background: #55535A;
+  color: #FFF;
+  border-radius: 10px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #474449;
+}
+
+.label {
+  margin-bottom: 7px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #523EF5;
+  border: none;
+  outline: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #FFF;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+.btn.secondary {
+  background-color: #343339;
+}
+.btn.secondary:hover {
+  background-color: #3b3a41;
+}
+.btn.secondary:active {
+  background-color: #43424b;
+}
+.btn.small {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+.btn:hover {
+  background-color: #4430ef;
+}
+.btn:active {
+  background-color: #3a26ee;
+}
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(171, 163, 243, 0.6);
+}
+
+.page-container {
+  margin: 0 auto;
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page-container.registration {
+  max-width: 1000px;
+}
+.page-container.login {
+  max-width: 500px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.inputs {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+.inputs.login {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  width: 100%;
+  margin-top: 30px;
+}
+.buttons .btn {
+  margin-bottom: 10px;
+}
+
+/*# sourceMappingURL=login.css.map */

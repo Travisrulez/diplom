@@ -1,0 +1,48 @@
+@import 'layout';
+@import 'components/input';
+@import 'components/button';
+
+.page-container {
+  margin: 0 auto;
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &.registration {
+    max-width: 1000px;
+  }
+
+  &.login {
+    max-width: 500px;
+  }
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.inputs {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+
+  &.login {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  width: 100%;
+  margin-top: 30px;
+
+  .btn {
+    margin-bottom: 10px;
+  }
+}

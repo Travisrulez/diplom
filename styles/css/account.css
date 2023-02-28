@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  color: white;
+}
+
+.app {
+  overflow: hidden;
+}
+
+body {
+  color: #FFF;
+  background-color: #16131B;
+}
+
+.h1 {
+  font-weight: 600;
+  font-size: 48px;
+}
+@media screen and (max-width: 1200px) {
+  .h1 {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .h1 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .h1 {
+    font-size: 26px;
+  }
+}
+
+.h2 {
+  font-weight: 700;
+  font-size: 30px;
+}
+@media screen and (max-width: 1200px) {
+  .h2 {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .h2 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .h2 {
+    font-size: 20px;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.overlay.active {
+  display: block;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #523EF5;
+  border: none;
+  outline: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #FFF;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+.btn.secondary {
+  background-color: #343339;
+}
+.btn.secondary:hover {
+  background-color: #3b3a41;
+}
+.btn.secondary:active {
+  background-color: #43424b;
+}
+.btn.small {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+.btn:hover {
+  background-color: #4430ef;
+}
+.btn:active {
+  background-color: #3a26ee;
+}
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(171, 163, 243, 0.6);
+}
+
+.card {
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #343339;
+}
+
+.header {
+  background-color: #343339;
+  padding: 15px 0;
+}
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__title {
+  font-weight: 600;
+  font-size: 20px;
+}
+.header__account {
+  display: flex;
+  align-items: center;
+}
+.header__name {
+  margin-right: 30px;
+}
+.header .btn {
+  background-color: #55535A;
+}
+
+.applications {
+  margin-top: 30px;
+}
+.applications__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+.application {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.application__name {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.application__title {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.application__status {
+  background-color: #7CC8FF;
+  border-radius: 15px;
+  padding: 6px 12px;
+  color: #16131B;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+.application__tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+.application__tag {
+  font-size: 14px;
+  margin: 0 20px 10px 0;
+}
+
+.header__arrow {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+/*# sourceMappingURL=account.css.map */

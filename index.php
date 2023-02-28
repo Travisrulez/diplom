@@ -5,41 +5,6 @@ include("app/database.php");
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-if(isset($_POST['submit'])) {
-    $fname = $_FILES['file']['name'];
-    $temp = $_FILES['file']['tmp_name'];
-    $fsize = $_FILES['file']['size'];
-    $extension = explode('.',$fname);
-    $extension = strtolower(end($extension));  
-    $fnew = uniqid().'.'.$extension;
-    $store = "assets/docs/".basename($fnew);                  
-    if($extension == 'pdf'||$extension == 'doc'||$extension == 'docx') {        
-        if ($fsize>=1000000) {
-            $error = 	'<div class="modal error">
-                            Максимальный размер изображения 1 Mb!
-                        </div>';
-        } else {
-            $sql = "INSERT INTO request(name, title, status, birthday, email, phone, pages, director, place, phile) VALUE('".$_POST['name']."','".$_POST['title']."','".$_POST['status']."','".$_POST['birthday']."','".$_POST['email']."','".$_POST['phone']."','".$_POST['pages']."','".$_POST['director']."','".$_POST['place']."','".$fnew."')";
-            mysqli_query($link, $sql); 
-            move_uploaded_file($temp, $store);
-
-            $success = 	'<div class="modal success">
-                            Запись успешно добавлена!
-                        </div>';
-        }
-    } elseif ($extension == '') {
-        $error = 	'<div class="modal error">
-                        Необходимо выбрать изображение!
-                    </div>';
-    } else {
-        $error = 	'<div class="modal error">
-                        Допустимые форматы изображения: PNG, JPEG, GIF!
-                    </div>';
-    }
-    // $_SESSION['error'] = $error;
-    // $_SESSION['success'] = $success;
-    header("location:index.php");
-}
 ?>
 <head>
   <meta charset='UTF-8'>
@@ -58,9 +23,9 @@ if(isset($_POST['submit'])) {
 <header class='header'>
       <div class='header__container container'>
         <h1 class='header__title h1'>Язык, сознание, коммуникация</h1>
-        <button class='header__btn btn'>
+        <a href="login.php" class='header__btn btn'>
           <img src='assets/icons/user.svg' />
-        </button>
+        </a>
       </div>
       <span class='decor-letter'>Я</span>
     </header>

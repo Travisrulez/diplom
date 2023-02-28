@@ -1,0 +1,78 @@
+@import 'layout';
+@import 'variables';
+@import 'components/button';
+@import 'components/card';
+
+.header {
+  background-color: $cardBg;
+  padding: 15px 0;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  &__account {
+    display: flex;
+    align-items: center;
+  }
+
+  &__name {
+    margin-right: 30px;
+  }
+
+  .btn {
+    background-color: #55535A;
+  }
+}
+
+.applications {
+  margin-top: 30px;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+}
+
+.application {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__name {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  &__status {
+    background-color: #7CC8FF;
+    border-radius: 15px;
+    padding: 6px 12px;
+    color: $bg;
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__tag {
+    font-size: 14px;
+    margin: 0 20px 10px 0;
+  }
+}

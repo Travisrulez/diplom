@@ -1,6 +1,7 @@
 @import '../variables';
 
 .btn {
+  display: inline-block;
   background-color: $buttonBg;
   border: none;
   outline: none;
@@ -8,9 +9,27 @@
   border-radius: 10px;
   font-size: 18px;
   color: $color;
-  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
   cursor: pointer;
   transition: background-color .15s ease-in-out, box-shadow .1s ease-in-out;
+
+  &.secondary {
+    background-color: $buttonSecondaryBg;
+
+    &:hover {
+      background-color: $buttonSecondaryBgHover;
+    }
+
+    &:active {
+      background-color: $buttonSecondaryBgActive;
+    }
+  }
+
+  &.small {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
 
   &:hover {
     background-color: $buttonBgHover;
