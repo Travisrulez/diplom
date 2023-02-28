@@ -5,6 +5,7 @@ include("app/database.php");
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
+error_reporting(0);
 session_start();
 if ($_SESSION["u_id"]) {
   $u_id = $_SESSION["u_id"];
