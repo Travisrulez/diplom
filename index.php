@@ -28,7 +28,7 @@ error_reporting(0);
           <img src='assets/icons/user.svg' />
         </a>
       </div>
-      <span class='decor-letter'>Я</span>
+      <span class='decor-letter'>Ψ</span>
     </header>
 
   <main>
@@ -146,7 +146,7 @@ error_reporting(0);
           </p>
           <a href="request.php" class='application__btn btn open-modal-btn'>Подать заявку</a>
         </div>
-        <span class='decor-letter'>Я</span>
+        <span class='decor-letter'>Ψ</span>
       </div>
     </section>
   </main>
