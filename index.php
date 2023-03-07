@@ -28,7 +28,7 @@ error_reporting(0);
           <img src='assets/icons/user.svg' />
         </a>
       </div>
-      <span class='decor-letter'>Ψ</span>
+      <span class='decor-letter'>Ψλ</span>
     </header>
 
   <main>
