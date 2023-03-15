@@ -16,3 +16,20 @@ function get_request_u($u_id) {
     $urequest = mysqli_fetch_assoc($result);
     return $urequest;
 }
+
+function get_posts() {
+    global $link;
+    $sql = "SELECT * FROM post ORDER BY p_id DESC";
+    $result = mysqli_query($link, $sql);
+    $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $posts;
+
+}
+
+function get_posts_p($p_id) {
+    global $link;
+    $sql = "SELECT * FROM post WHERE p_id=". $p_id;
+    $result = mysqli_query($link, $sql);
+    $pposts = mysqli_fetch_assoc($result);
+    return $pposts;
+}

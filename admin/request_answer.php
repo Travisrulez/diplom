@@ -43,6 +43,11 @@ $sql = "update request set answer ='$_POST[answer]' where r_id='$_GET[post_id]'"
             <!-- <div class="icon"><img src="img/icons/home.png" alt="homepage-icon"></div> -->
             <a href="requests.php">Заявки</a>
         </div>
+        <div class="navbar__item">
+            <!-- <div class="icon"><img src="img/icons/home.png" alt="homepage-icon"></div> -->
+            <a href="afisha.php">Конференции</a>
+            <a href="afisha_add.php" style="font-size:30px">+</a>
+        </div>
         <a href="requests.php" class="logout">Выход</a>
 
     </nav>

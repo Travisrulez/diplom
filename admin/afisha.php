@@ -6,7 +6,7 @@ include("../app/functions.php");
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(0);
+// error_reporting(0);
 session_start();
 ?>
 <head>
@@ -48,17 +48,17 @@ session_start();
     <div class="container">
         <div class="wrapper">
             <div class="posts">
-                <?php $requests = get_requests();?>
-                <?php foreach ($requests as $request):?>
+                <?php $posts = get_posts();?>
+                <?php foreach ($posts as $post):?>
                 <div class="posts__item">
                     <div class="content">
-                        <a href="post_edit.php?post_id=<?=$request['r_id'];?>"><?=$request['name']?></a>
-                        <?=$request['email']?>
+                        <a href="afisha_edit.php?p_id=<?=$post['p_id'];?>"><?=$post['p_title']?></a>
+                        <?=$post['p_start']?>
                         <br>
                         <br>
-                        <?=$request['phone']?>
-                        <div>Скачать: <a href="../assets/docs/<?=$request['phile']?>"><?=$request['title']?></a></div>
-                        <?=$request['date']?>
+                        <?=$post['p_scontent']?>
+                        <!-- <div>Скачать: <a href="../assets/docs/<?=$request['phile']?>"><?=$request['title']?></a></div> -->
+                        <?=$post['datetime']?>
                     </div>
                     <div class="options">
                         <img src="img/icons/options.png" alt="options">
@@ -66,7 +66,7 @@ session_start();
                             <div class="options-list">
                                 <div class="option edit">
                                     <div class="icon"><img src="img/icons/edit.png" alt="icon"></div>
-                                    <a href="request_answer.php?post_id=<?=$request['r_id'];?>">Оставить рецензию</a>
+                                    <a href="afisha_edit.php?post_id=<?=$post['p_id'];?>">Редактировать</a>
                                 </div>
                                 <!-- <div class="option delete">
                                     <div class="icon"><img src="img/icons/delete.png" alt="icon"></div>
