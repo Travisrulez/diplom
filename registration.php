@@ -39,7 +39,7 @@ if(isset($_POST['submit']))
 		 {
 			$mql = "INSERT INTO user (name,password,email,status,phone,place,birthday) VALUES ('".$_POST['cr_user']."','".md5($_POST['cr_pass'])."','".$_POST['cr_email']."','".$_POST['status']."','".$_POST['phone']."','".$_POST['place']."','".$_POST['birthday']."')";
 			mysqli_query($link, $mql);
-			$success = "Аккаунт успешно создан, '<br>' вы будете сечас будете перенаправлены на стрницу авторизации!";
+			$success = "Аккаунт успешно создан, <br> вы будете сечас будете перенаправлены на стрницу авторизации!";
       header("refresh:5;url=login.php");
 		 }
     }

@@ -52,17 +52,27 @@ session_start();
     <div class="container">
         <div class="wrapper">
             <div class="posts">
-                <?php $posts = get_posts();?>
-                <?php foreach ($posts as $post):?>
+                <?php $requests = get_a_requests();?>
+                <?php foreach ($requests as $request):?>
                 <div class="posts__item">
                     <div class="content">
-                        <a href="afisha_edit.php?p_id=<?=$post['p_id'];?>"><?=$post['p_title']?></a>
-                        <?=$post['p_start']?>
+                        <a href="request_page.php?r_id=<?=$request['r_id'];?>"><?=$request['name']?></a>
+                        <?=$request['email']?>
                         <br>
                         <br>
-                        <?=$post['p_scontent']?>
-                        <!-- <div>Скачать: <a href="../assets/docs/<?=$request['phile']?>"><?=$request['title']?></a></div> -->
-                        <?=$post['datetime']?>
+                        <?=$request['phone']?>
+                        <div>Скачать: <br>
+                        <?php
+                            $u_id = $request['u_id'];
+                            $ufiles = get_files_by_user($u_id);
+                            foreach ($ufiles as $ufile):
+                        ?>    
+                        <a href="../<?=$ufile['path']?>"><?=$ufile['name']?></a><br>
+                        <?php
+                            endforeach;
+                            ?>
+                    </div>
+                        <?=$request['date']?>
                     </div>
                     <div class="options">
                         <img src="img/icons/options.png" alt="options">
@@ -70,7 +80,7 @@ session_start();
                             <div class="options-list">
                                 <div class="option edit">
                                     <div class="icon"><img src="img/icons/edit.png" alt="icon"></div>
-                                    <a href="afisha_edit.php?post_id=<?=$post['p_id'];?>">Редактировать</a>
+                                    <a href="request_answer.php?post_id=<?=$request['r_id'];?>">Оставить рецензию</a>
                                 </div>
                                 <!-- <div class="option delete">
                                     <div class="icon"><img src="img/icons/delete.png" alt="icon"></div>

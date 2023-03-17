@@ -34,7 +34,11 @@ session_start();
     <nav class="navbar">
         <div class="navbar__item">
             <!-- <div class="icon"><img src="img/icons/home.png" alt="homepage-icon"></div> -->
-            <a href="requests.php">Заявки</a>
+            <a href="active_requests.php">Активные заявки</a>
+        </div>
+        <div class="navbar__item">
+            <!-- <div class="icon"><img src="img/icons/home.png" alt="homepage-icon"></div> -->
+            <a href="close_requests.php">Закрытые заявки</a>
         </div>
         <div class="navbar__item">
             <!-- <div class="icon"><img src="img/icons/home.png" alt="homepage-icon"></div> -->
@@ -48,16 +52,26 @@ session_start();
     <div class="container">
         <div class="wrapper">
             <div class="posts">
-                <?php $requests = get_requests();?>
+                <?php $requests = get_c_requests();?>
                 <?php foreach ($requests as $request):?>
                 <div class="posts__item">
                     <div class="content">
-                        <a href="post_edit.php?post_id=<?=$request['r_id'];?>"><?=$request['name']?></a>
+                    <a href="request_page.php?r_id=<?=$request['r_id'];?>"><?=$request['name']?></a>
                         <?=$request['email']?>
                         <br>
                         <br>
                         <?=$request['phone']?>
-                        <div>Скачать: <a href="../assets/docs/<?=$request['phile']?>"><?=$request['title']?></a></div>
+                        <div>Скачать: <br>
+                        <?php
+                            $u_id = $request['u_id'];
+                            $ufiles = get_files_by_user($u_id);
+                            foreach ($ufiles as $ufile):
+                        ?>    
+                        <a href="../<?=$ufile['path']?>"><?=$ufile['name']?></a><br>
+                        <?php
+                            endforeach;
+                            ?>
+                    </div>
                         <?=$request['date']?>
                     </div>
                     <div class="options">

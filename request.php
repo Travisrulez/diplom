@@ -9,37 +9,47 @@ error_reporting(0);
 session_start();
 if ($_SESSION["u_id"]) {
   $u_id = $_SESSION["u_id"];
+  // echo $u_id;
+  $ssql = "SELECT * FROM request WHERE u_id=". $u_id;
+$cresult = mysqli_query($link, $ssql);
+$creq = mysqli_num_rows($cresult);
+if ($creq ==0) {
 if(isset($_POST['submit'])) {
-    $fname = $_FILES['file']['name'];
-    $temp = $_FILES['file']['tmp_name'];
-    $fsize = $_FILES['file']['size'];
-    $extension = explode('.',$fname);
-    $extension = strtolower(end($extension));  
-    $fnew = uniqid().'.'.$extension;
-    $store = "assets/docs/".basename($fnew);                  
-    if($extension == 'pdf'||$extension == 'doc'||$extension == 'docx') {        
-        if ($fsize>=1000000) {
-            $error = 	'<div class="modal error">
-                            Максимальный размер изображения 1 Mb!
-                        </div>';
-        } else {
-            $sql = "INSERT INTO request(name, title, status, birthday, email, phone, pages, director, place, phile) VALUE('".$_POST['name']."','".$_POST['title']."','".$_POST['status']."','".$_POST['birthday']."','".$_POST['email']."','".$_POST['phone']."','".$_POST['pages']."','".$_POST['director']."','".$_POST['place']."','".$fnew."')";
-            mysqli_query($link, $sql); 
-            move_uploaded_file($temp, $store);
-
-            $success = 	'<div class="modal success">
-                            Запись успешно добавлена!
-                        </div>';
-        }
-    } elseif ($extension == '') {
-        $error = 	'<div class="modal error">
-                        Необходимо выбрать изображение!
-                    </div>';
-    } else {
-        $error = 	'<div class="modal error">
-                        Допустимые форматы изображения: PNG, JPEG, GIF!
-                    </div>';
-    }
+  $documents = $_FILES['documents'];
+	foreach ($documents['name'] as $key => $name) {
+		$type = $documents['type'][$key];
+		$size = $documents['size'][$key];
+		$tmp_name = $documents['tmp_name'][$key];
+		$error = $documents['error'][$key];
+		if ($error !== UPLOAD_ERR_OK) {
+			echo "Ошибка загрузки файла: " . $name;
+			continue;
+		}
+		$allowed_formats = array('doc', 'docx', 'pdf');
+		$file_info = pathinfo($name);
+		$file_ext = strtolower($file_info['extension']);
+		if (!in_array($file_ext, $allowed_formats)) {
+			echo "Ошибка: неверный формат файла: " . $name;
+			continue;
+		}
+		$new_file_name = uniqid('', true) . '.' . $file_ext;
+		$upload_dir = "assets/docs/";
+		if (!file_exists($upload_dir)) {
+			mkdir($upload_dir, 0777, true);
+		}
+		$upload_file_path = $upload_dir . $new_file_name;
+		if (!move_uploaded_file($tmp_name, $upload_file_path)) {
+			echo "Ощибка загрузки файла: " . $name;
+			continue;
+		}
+		$sql = "INSERT INTO files (name, type, size, path, uid) VALUES ('$name', '$type', '$size', '$upload_file_path', '$u_id')";
+		if ($link->query($sql) !== TRUE) {
+			echo "Ошибка: " . $sql . "<br>" . $link->error;
+			continue;
+		}
+    $ssql = "INSERT INTO request(name, title, status, birthday, email, phone, pages, director, place, u_id) VALUE('".$_POST['name']."','".$_POST['title']."','".$_POST['status']."','".$_POST['birthday']."','".$_POST['email']."','".$_POST['phone']."','".$_POST['pages']."','".$_POST['director']."','".$_POST['place']."','".$u_id."')";
+            mysqli_query($link, $ssql); 
+	}
     // $_SESSION['error'] = $error;
     // $_SESSION['success'] = $success;
     header("location:account.php");
@@ -112,7 +122,7 @@ $sql = "SELECT * FROM user WHERE u_id=". $u_id;
         </div>
         <div class='input-container'>
           <label class='label' for='file'>Поле прикрепления файла</label>
-          <input class='input' type='file' name="file" id='file' placeholder='asd' />
+          <input class='input' type="file" name="documents[]" multiple id='file' placeholder='asd'/>
         </div>
       </div>
 
@@ -122,6 +132,9 @@ $sql = "SELECT * FROM user WHERE u_id=". $u_id;
 </body>
 </html>
 <?php 
+}else {
+  header("location:account.php");
+}
 }else {
   header("location:login.php");
 }

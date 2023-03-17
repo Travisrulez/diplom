@@ -41,7 +41,11 @@ $sql = "update request set answer ='$_POST[answer]' where r_id='$_GET[post_id]'"
     <nav class="navbar">
         <div class="navbar__item">
             <!-- <div class="icon"><img src="img/icons/home.png" alt="homepage-icon"></div> -->
-            <a href="requests.php">Заявки</a>
+            <a href="active_requests.php">Активные заявки</a>
+        </div>
+        <div class="navbar__item">
+            <!-- <div class="icon"><img src="img/icons/home.png" alt="homepage-icon"></div> -->
+            <a href="close_requests.php">Закрытые заявки</a>
         </div>
         <div class="navbar__item">
             <!-- <div class="icon"><img src="img/icons/home.png" alt="homepage-icon"></div> -->

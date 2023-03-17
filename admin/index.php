@@ -16,7 +16,7 @@ if(isset($_POST['submit']))
 	if(is_array($row))
 		{
 				$_SESSION["adm_id"] = $row['adm_id'];
-					header("refresh:1;url=requests.php");
+					header("refresh:1;url=active_requests.php");
 		} 
 	else
 		{
