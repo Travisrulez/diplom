@@ -16,6 +16,9 @@ $creq = mysqli_num_rows($cresult);
 if ($creq ==0) {
 if(isset($_POST['submit'])) {
   $documents = $_FILES['documents'];
+  $ssql = "INSERT INTO request(name, title, status, birthday, email, phone, pages, director, place, u_id) VALUE('".$_POST['name']."','".$_POST['title']."','".$_POST['status']."','".$_POST['birthday']."','".$_POST['email']."','".$_POST['phone']."','".$_POST['pages']."','".$_POST['director']."','".$_POST['place']."','".$u_id."')";
+            mysqli_query($link, $ssql); 
+            $last_id = mysqli_insert_id($link);
 	foreach ($documents['name'] as $key => $name) {
 		$type = $documents['type'][$key];
 		$size = $documents['size'][$key];
@@ -42,13 +45,11 @@ if(isset($_POST['submit'])) {
 			echo "Ощибка загрузки файла: " . $name;
 			continue;
 		}
-		$sql = "INSERT INTO files (name, type, size, path, uid) VALUES ('$name', '$type', '$size', '$upload_file_path', '$u_id')";
+		$sql = "INSERT INTO files (name, type, size, path, uid, r_id) VALUES ('$name', '$type', '$size', '$upload_file_path', '$u_id', '$last_id')";
 		if ($link->query($sql) !== TRUE) {
 			echo "Ошибка: " . $sql . "<br>" . $link->error;
 			continue;
 		}
-    $ssql = "INSERT INTO request(name, title, status, birthday, email, phone, pages, director, place, u_id) VALUE('".$_POST['name']."','".$_POST['title']."','".$_POST['status']."','".$_POST['birthday']."','".$_POST['email']."','".$_POST['phone']."','".$_POST['pages']."','".$_POST['director']."','".$_POST['place']."','".$u_id."')";
-            mysqli_query($link, $ssql); 
 	}
     // $_SESSION['error'] = $error;
     // $_SESSION['success'] = $success;

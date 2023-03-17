@@ -224,4 +224,13 @@ input[type=file]::file-selector-button:hover {
   margin-bottom: 10px;
 }
 
+
+@media screen and (max-width: 768px) {
+  .inputs {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+  }
+}
 /*# sourceMappingURL=login.css.map */

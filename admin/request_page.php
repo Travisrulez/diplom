@@ -106,7 +106,8 @@ if (isset($_POST['submit'])) {
                 <div class="form__item short-form">
                     <label for="start">Файлы:</label>
                     <?php 
-                    $files = get_files_by_user($u_id);
+                    $r_id = $request['r_id'];
+                    $files = get_files_by_request($r_id);
                     foreach ($files as $file):
                     ?>
                     <a href="../<?=$file['path']?>"><?=$file['name']?></a><br>

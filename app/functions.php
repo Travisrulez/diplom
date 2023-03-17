@@ -77,3 +77,12 @@ function get_files_by_user($u_id) {
     return $ufiles;
 
 }
+
+function get_files_by_request($r_id) {
+    global $link;
+    $ssql = "SELECT * FROM files WHERE r_id=". $r_id;
+    $result = mysqli_query($link, $ssql);
+    $rfiles = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $rfiles;
+
+}

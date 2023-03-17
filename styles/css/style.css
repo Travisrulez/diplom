@@ -181,7 +181,13 @@ input[type=file]::file-selector-button:hover {
 }
 
 .modal {
-  display: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%!important;
+  padding: 0 250px 0 250px;
+  /* display: none;
   position: fixed;
   top: 50px;
   left: 50%;
@@ -189,7 +195,7 @@ input[type=file]::file-selector-button:hover {
   max-width: calc(100% - 30px);
   border-radius: 20px;
   background-color: #16131B;
-  padding: 40px;
+  padding: 40px; */
 }
 .modal__title {
   font-size: 24px;
@@ -487,6 +493,7 @@ input[type=file]::file-selector-button:hover {
     transform: none;
     width: 100%;
     margin-top: 0;
+    padding: 0;
   }
 
   .modal form {
@@ -504,9 +511,9 @@ input[type=file]::file-selector-button:hover {
     margin-top: 10px;
   }
 
-  .header__btn {
+  /* .header__btn {
     display: none;
-  }
+  } */
 
   .header__arrow {
     margin-right: 30px!important;

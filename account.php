@@ -4,7 +4,7 @@ include("app/functions.php");
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(0);
+// error_reporting(0);
 session_start();
 if ($_SESSION["u_id"]) {
   $u_id = $_SESSION["u_id"];
@@ -45,7 +45,10 @@ if ($creq == 0) {
     <section class='applications'>
       <div class='applications__container container'>
         <div class='application card'>
-          <div class='application__name'>Заявка на участие в конференции</div>
+          <div class='application__name'>
+            <div>Заявка на участие в конференции</div>
+            <div><a href="request_edit.php?req_id=<?=$u['r_id']?>"><img class="iedit" src="assets/icons/edit.png" alt="edit"></a></div>
+          </div>
           <div class='application__title'>Язык, сознание, комунникация</div>
           <?php 
           if ($u['answer'] == 0) {?>

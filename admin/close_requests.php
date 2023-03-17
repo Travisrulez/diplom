@@ -64,7 +64,8 @@ session_start();
                         <div>Скачать: <br>
                         <?php
                             $u_id = $request['u_id'];
-                            $ufiles = get_files_by_user($u_id);
+                            $r_id = $request['r_id'];
+                            $ufiles = get_files_by_request($r_id);
                             foreach ($ufiles as $ufile):
                         ?>    
                         <a href="../<?=$ufile['path']?>"><?=$ufile['name']?></a><br>
