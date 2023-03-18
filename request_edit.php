@@ -163,7 +163,7 @@ else {
           <input class='input' id='place' name="place" placeholder='Введите место работы' value="<?=$u['place']?>" value="<?=$req['place']?>" readonly style="color: gray!important;"/>
         </div>
         <div class='input-container' <?=$style?>>
-          <label class='label' for='file'>Добавить документы:</label>
+          <label class='label' for='file'>Добавить документы<small>(.doc, .docx, .pdf)</small>:</label>
           <input class='input' type="file" name="documents[]" multiple id='file' placeholder='asd' <?=$readeonly?>/>          
         </div>
         <div class='input-container'>

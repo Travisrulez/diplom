@@ -5,7 +5,7 @@ include("app/database.php");
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(0);
+// error_reporting(0);
 session_start();
 if ($_SESSION["u_id"]) {
   $u_id = $_SESSION["u_id"];
@@ -31,10 +31,12 @@ if(isset($_POST['submit'])) {
 		$allowed_formats = array('doc', 'docx', 'pdf');
 		$file_info = pathinfo($name);
 		$file_ext = strtolower($file_info['extension']);
-		if (!in_array($file_ext, $allowed_formats)) {
-			echo "Ошибка: неверный формат файла: " . $name;
-			continue;
-		}
+    $wrongextx = in_array($file_ext, $allowed_formats);
+		if (!$wrongextx) {
+			$wrongext = "Ошибка: неверный формат файла: " . $name;
+      // echo $wrongext;
+			// continue;
+		} else {
 		$new_file_name = uniqid('', true) . '.' . $file_ext;
 		$upload_dir = "assets/docs/";
 		if (!file_exists($upload_dir)) {
@@ -49,11 +51,18 @@ if(isset($_POST['submit'])) {
 		if ($link->query($sql) !== TRUE) {
 			echo "Ошибка: " . $sql . "<br>" . $link->error;
 			continue;
-		}
+		}}
+    if (!$wrongextx) {
+      mysqli_query($link, "DELETE FROM request WHERE r_id = '".$last_id."'");
+      // echo $last_id;
+      echo $wrongext;
+    } else {
+      header("location:account.php");
+    }
 	}
     // $_SESSION['error'] = $error;
     // $_SESSION['success'] = $success;
-    header("location:account.php");
+    // header("location:account.php");
 }
 $sql = "SELECT * FROM user WHERE u_id=". $u_id;
     $result = mysqli_query($link, $sql);
@@ -122,7 +131,7 @@ $sql = "SELECT * FROM user WHERE u_id=". $u_id;
           <input class='input' id='place' name="place" placeholder='Введите место работы' value="<?=$u['place']?>"/>
         </div>
         <div class='input-container'>
-          <label class='label' for='file'>Поле прикрепления файла</label>
+          <label class='label' for='file'>Поле прикрепления файла<small>(.doc, .docx, .pdf)</small></label>
           <input class='input' type="file" name="documents[]" multiple id='file' placeholder='asd'/>
         </div>
       </div>

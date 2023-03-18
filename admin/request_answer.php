@@ -12,7 +12,7 @@ $post = $_GET['post_id'];
 if(isset($_POST['submit'])) {
 $sql = "update request set answer ='$_POST[answer]' where r_id='$_GET[post_id]'";
             mysqli_query($link, $sql); 
-            header("location:requests.php");
+            header("location:close_requests.php");
 }
 ?>
 <head>

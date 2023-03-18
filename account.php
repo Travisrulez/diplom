@@ -64,7 +64,8 @@ if ($creq == 0) {
             <div class='application__tag'>12 ноября 2023</div>
             <div class='application__tag'>Русский</div>
             <?php 
-            $ufile = get_files_by_user($u_id);
+            $r_id = $u['r_id'];
+            $ufile = get_files_by_request($r_id);
             foreach ($ufile as $ufiles):
             ?>
             <div class='application__tag'><a href="<?=$ufiles['path']?>"><?=$ufiles['name']?></a></div>
