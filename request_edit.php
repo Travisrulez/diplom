@@ -36,7 +36,7 @@ if(isset($_POST['submit'])) {
 			echo "Ошибка загрузки файла: " . $name;
 			continue;
 		}
-		$allowed_formats = array('doc', 'docx', 'pdf');
+		$allowed_formats = array('doc', 'docx', 'pdf', 'jpg', 'jpeg', 'png');
 		$file_info = pathinfo($name);
 		$file_ext = strtolower($file_info['extension']);
 		if (!in_array($file_ext, $allowed_formats)) {
