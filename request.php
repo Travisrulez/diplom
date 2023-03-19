@@ -116,7 +116,7 @@ $sql = "SELECT * FROM user WHERE u_id=". $u_id;
         </div>
         <div class='input-container'>
           <label class='label' for='articleTitle'>Название статьи</label>
-          <input class='input' id='articleTitle' name="title" placeholder='Введите название статьи' />
+          <input class='input' id='articleTitle' name="title" placeholder='Введите название статьи' require/>
         </div>
         <div class='input-container'>
           <label class='label' for='director'>Научный руководитель</label>
@@ -131,7 +131,7 @@ $sql = "SELECT * FROM user WHERE u_id=". $u_id;
           <input class='input' id='place' name="place" placeholder='Введите место работы' value="<?=$u['place']?>"/>
         </div>
         <div class='input-container'>
-          <label class='label' for='file'>Поле прикрепления файла<small>(.doc, .docx, .pdf, .jpg, .jpeg, .png)</small></label>
+          <label class='label' for='file' require>Поле прикрепления файла<small>(.doc, .docx, .pdf, .jpg, .jpeg, .png)</small></label>
           <input class='input' type="file" name="documents[]" multiple id='file' placeholder='asd'/>
         </div>
       </div>
