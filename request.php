@@ -131,7 +131,7 @@ $sql = "SELECT * FROM user WHERE u_id=". $u_id;
           <input class='input' id='place' name="place" placeholder='Введите место работы' value="<?=$u['place']?>"/>
         </div>
         <div class='input-container'>
-          <label class='label' for='file'>Поле прикрепления файла<small>(.doc, .docx, .pdf)</small></label>
+          <label class='label' for='file'>Поле прикрепления файла<small>(.doc, .docx, .pdf, .jpg, .jpeg, .png)</small></label>
           <input class='input' type="file" name="documents[]" multiple id='file' placeholder='asd'/>
         </div>
       </div>
